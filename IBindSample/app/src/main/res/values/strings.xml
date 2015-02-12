@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">IBindSample</string>
+    <string name="labelStartButton">Start Service</string>
+    <string name="action_settings">Settings</string>
+
+</resources>
