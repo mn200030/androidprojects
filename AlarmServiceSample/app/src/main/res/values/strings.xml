@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AlarmServiceSample</string>
+    <string name="labelScheduleButton">Schedule Service</string>
+    <string name="labelCancelScheduleButton">Cancel Scheduled Service</string>
+    <string name="action_settings">Settings</string>
+
+</resources>
