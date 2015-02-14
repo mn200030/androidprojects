@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LandscapeSample</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="labelButton1">Button1</string>
+    <string name="labelButton2">Button2</string>
+    <string name="labelButton3">Button3</string>
+
+    <string name="labelButton1land">ボタン1</string>
+    <string name="labelButton2land">ボタン2</string>
+    <string name="labelButton3land">ボタン3</string>
+
+</resources>
