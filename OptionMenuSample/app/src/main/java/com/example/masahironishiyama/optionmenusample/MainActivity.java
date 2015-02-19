@@ -1,18 +1,36 @@
 package com.example.masahironishiyama.optionmenusample;
 
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements ActionBar.OnNavigationListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+
+        ArrayAdapter<CharSequence> adapter =
+                ArrayAdapter.createFromResource(
+                        this,
+                        R.array.planetsArray,
+                        R.layout.actionbar_spinner
+                );
+        adapter.setDropDownViewResource(
+                R.layout.actionbar_spinner_dropdown
+        );
+
+        actionBar.setListNavigationCallbacks(adapter, this);
     }
 
 
@@ -40,5 +58,13 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(int i, long l) {
+        Toast.makeText(this, "pos=" + i +
+        " id=" + l, Toast.LENGTH_SHORT
+        ).show();
+        return true;
     }
 }
