@@ -1,67 +1,44 @@
-package com.example.masahironishiyama.listviewsample;
+package com.example.masahironishiyama.listviewwithicon;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends ActionBarActivity
-    implements View.OnClickListener {
+public class MainActivity extends ActionBarActivity {
 
-    ListView listView;
-    Button addButton;
-
-    static List<Book> dataList = new ArrayList<>();
-    static ArrayAdapter<Book> adapter;
+    private List<String> items = new ArrayList<>();
+    private ArrayAdapter<String> adapter;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViews();
-        setAdapters();
-    }
-
-    protected void setAdapters() {
-        adapter = new ArrayAdapter<Book>(
-                this,
-                android.R.layout.simple_list_item_1,
-                dataList
+        listView = (ListView)findViewById(R.id.listview1);
+        adapter = new ArrayAdapter<String>(
+            this,
+            R.layout.row,
+            R.id.row_textview1,
+            items
         );
         listView.setAdapter(adapter);
+        addItems();
     }
 
-    private void findViews() {
-        listView = (ListView)findViewById(R.id.listView1);
-        addButton = (Button)findViewById(R.id.button1);
-        addButton.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.button1:
-                addItem();
-                break;
+    private void addItems() {
+        String format = "Item%d";
+        for (int i = 0 ; i < 10 ; i++) {
+            adapter.add(String.format(format, i));
         }
     }
 
-    protected void addItem() {
-        adapter.add(new Book(
-                "The Immortal Life of Henrietta Lacks",
-                "1400052173",
-                "Rebecca Skloot"
-        ));
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
